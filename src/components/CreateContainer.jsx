@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
+import { useStateValue } from "../context/StateProvider";
+import { getAllFoodItems } from "../utils/firebaseFunctions";
+import { actionType } from "../context/reducer";
 import {
   MdFastfood,
   MdCloudUpload,
@@ -16,6 +19,7 @@ import {
   uploadBytesResumable,
 } from "firebase/storage";
 import { storage } from "../firebase.config";
+import { saveItem } from "../utils/firebaseFunctions";
 const CreateContainer = () => {
   const [title, setTitle] = useState("");
   const [calories, setCalories] = useState("");
@@ -26,6 +30,7 @@ const CreateContainer = () => {
   const [alertStatus, setAlertStatus] = useState("harsh");
   const [msg, setMsg] = useState(null);
   const [imageAsset, setImageAsset] = useState(null);
+  const [{ foodItems }, dispatch] = useStateValue();
   const uploadImage = (e) => {
     setIsLoading(true);
     const imageFile = e.target.files[0];
@@ -95,6 +100,15 @@ const CreateContainer = () => {
           calories: calories,
           price: price,
         };
+        saveItem(data);
+        setIsLoading(false);
+        setFields(true);
+        setMsg("Data uploaded Succesfully");
+        clearData();
+        setAlertStatus("success");
+        setTimeout(() => {
+          setFields(false);
+        }, 4000);
       }
     } catch (error) {
       console.group(error);
@@ -106,7 +120,25 @@ const CreateContainer = () => {
         setIsLoading(false);
       }, 4000);
     }
+    fetchData();
   };
+  const clearData = () => {
+    setTitle("");
+    setImageAsset(null);
+    setCalories("");
+    setPrice("");
+    setCategory(null);
+  };
+
+  const fetchData = async () => {
+    await getAllFoodItems().then((data) => {
+      dispatch({
+        type: actionType.SET_FOOD_ITEMS,
+        foodItems: data,
+      });
+    });
+  };
+
   return (
     <div className="w-full min-h-screen flex items-center justify-center ">
       <div className="w-[90%] md:w-[75%] border border-gray-300 rounded-lg p-4 flex flex-col items-center justify-center gap-2">
