@@ -99,6 +99,7 @@ const CreateContainer = () => {
           category: category,
           calories: calories,
           price: price,
+          quantity: 1,
         };
         saveItem(data);
         setIsLoading(false);

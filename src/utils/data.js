@@ -18,25 +18,30 @@ export const categories = [
     id: 1,
     name: "Fruits",
     urlParamName: "fruits",
+    class:"group-hover:text-textColor text-lg fi fi-ss-strawberry",
   },
   {
     id: 2,
     name: "Shakes",
     urlParamName: "shakes",
+    class:"group-hover:text-textColor text-lg fi fi-rr-beer",
   },
   {
     id: 3,
     name: "Juices",
-    urlParamName: "juics",
+    urlParamName: "juices",
+    class:"group-hover:text-textColor text-lg fi fi-rr-drink-alt",
   },
   {
     id: 4,
     name: "Icecream",
     urlParamName: "icecream",
+    class:"group-hover:text-textColor text-lg fi fi-sr-ice-cream",
   },
   {
     id: 5,
     name: "Soft Drinks",
     urlParamName: "drinks",
+    class:"group-hover:text-textColor text-lg fi fi-ss-drink-alt",
   }
 ];

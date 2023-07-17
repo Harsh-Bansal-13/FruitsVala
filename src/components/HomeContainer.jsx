@@ -49,16 +49,16 @@ const HomeContainer = () => {
           src={Fruitsbg}
           alt="bg"
         />
-        <div className="w-full h-full absolute top-0 left-0 flex items-center justify-center  py-4 gap-8 flex-wrap">
+        <div className="w-full h-full absolute top-0 left-0 flex items-center justify-center py-4 gap-4 flex-wrap">
           {heroData &&
             heroData.map((item) => (
               <div
                 key={item.id}
-                className="w-190 p-4 bg-cardOverlay backdrop-blur-md rounded-lg flex flex-col items-center justify-center drop-shadow-lg"
+                className="w-[130px] md:w-190 p-4 bg-cardOverlay backdrop-blur-md rounded-lg flex flex-col items-center justify-center drop-shadow-lg"
               >
                 <img
                   src={item.imageSrc}
-                  className="w-24 lg:w-40 -mt-10 lg:-mt-20"
+                  className="w-20 lg:w-40 -mt-10 lg:-mt-20"
                   alt={item.name}
                 />
                 <p className="mt-2 lg:mt-4 text-sm lg:text-lg font-semibold text-textColor">
