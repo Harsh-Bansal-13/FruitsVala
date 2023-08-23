@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { Route, Routes } from 'react-router-dom';
 import { CreateContainer, Header, MainContainer} from './components';
 import { AnimatePresence } from 'framer-motion';
-import "D:/Fruit Wala/fruits-wala/src/";
+
 import { useStateValue } from './context/StateProvider';
 import { getAllFoodItems } from './utils/firebaseFunctions';
 import { actionType } from './context/reducer';

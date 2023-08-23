@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import Logo from "D:/Fruit Wala/fruits-wala/src/images/Logo.png";
-import avatar from "D:/Fruit Wala/fruits-wala/src/images/avatar-1577909_960_720.webp";
+import Logo from "../images/Logo.png";
+import avatar from "../images/avatar.webp";
 import "./header.css";
 import { MdShoppingBasket, MdAdd, MdLogout } from "react-icons/md";
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
